@@ -136,7 +136,7 @@ clearCart =(id)=>{
 
 addTotals=()=>{
   let subtotal = 0;
-  this.state.cart.map(item=>{subtotal+=item.total});
+  this.state.cart.map((item)=>{subtotal+=item.total});
   const tempTax = subtotal * 0.1;
   const tax = parseFloat(tempTax.toFixed(2));
   const total = subtotal + tax;

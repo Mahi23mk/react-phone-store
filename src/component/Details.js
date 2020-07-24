@@ -1,7 +1,6 @@
 import React from "react"
 import {ProductConsumer} from "../context"
 import  {Link} from "react-router-dom"
-import styled from "styled-components"
 import "../App.css"
 export default class Details extends React.Component {
   render() {
