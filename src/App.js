@@ -9,6 +9,7 @@ import Details from "./component/Details"
 import Cart from "./component/Cart"
 import Default from "./component/Default"
 import Model from "./component/Model"
+import Toggle from "./component/Toggle"
 
 class App extends React.Component{
   render(){
@@ -19,6 +20,7 @@ class App extends React.Component{
         <Route exact path="/" component={ProductList}/>
         <Route path="/details" component={Details}/>
         <Route path="/cart" component={Cart}/>
+        <Route path="/toggle" component={Toggle}/>
         <Route component={Default}/>
       </Switch>
       <Model/>

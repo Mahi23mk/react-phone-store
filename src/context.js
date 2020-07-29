@@ -13,7 +13,10 @@ class ProductProvider extends React.Component{
     modelProduct: detailProduct,
     cartSubTotal:0,
     cartTax:0,
-    cartTotal:0
+    cartTotal:0,
+    loggedIn:false,
+    login_toggle:true,
+    register_toggle:false
   };
 
   componentDidMount(){
@@ -149,6 +152,38 @@ addTotals=()=>{
   })
 }
 
+login=()=>{
+  let prevState = this.state.loggedIn;
+
+  this.setState(()=>{
+    return{
+      loggedIn:true
+    }
+  })
+  console.log(this.state.loggedIn);
+};
+
+toggle=()=>{
+  console.log("toggle");
+  this.setState(()=>{
+    return{
+      login_toggle:true,
+      register_toggle:false
+    };
+  });
+};
+
+toggle_register=()=>{
+  console.log("toggle");
+  this.setState(()=>{
+    return{
+      register_toggle:true,
+      login_toggle:false,
+
+    };
+  });
+};
+
   render(){
     return(
       <ProductContext.Provider value={{
@@ -160,7 +195,10 @@ addTotals=()=>{
         increment:this.increment,
         decrement:this.decrement,
         removeItem:this.removeItem,
-        clearCart:this.clearCart
+        clearCart:this.clearCart,
+        login:this.login,
+        toggle:this.toggle,
+        toggle_register:this.toggle_register
 
       }}>
       {this.props.children}

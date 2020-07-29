@@ -8,8 +8,8 @@ export default class ProductList extends React.Component {
     return(
       <React.Fragment>
         <div className="py-4">
-          <div className="container">
-            <Title name="Our" title="Products"/> 
+          <div className="container mt-5">
+            <Title name="Our products" />
             </div>
 
             <div className="row mx-3">

@@ -4,7 +4,6 @@ import {ProductConsumer} from "../context"
 import {Link} from "react-router-dom"
 
 
-
 export default class Model extends React.Component{
   render(){
     return(
@@ -26,18 +25,19 @@ export default class Model extends React.Component{
                       <button className="btn-lg my_btn text-capitalise"
                       onClick={()=>value.closeModel()}>continue</button>
                     </Link>
-                    <Link to="/cart">
-                      <button className="btn-lg my_btn bg-danger text-capitalise"
-                       onClick={()=>value.closeModel()}>go to cart</button>
-                    </Link>
+                         <Link to="/cart">
+                          <button className="btn-lg my_btn bg-danger text-capitalise"
+                           onClick={()=>value.closeModel()}>go to cart</button>
+                        </Link>
+
                   </div>
                 </div>
               </div>
             </ModelContainer>
           )
         }
-        else{
-          return (null);
+        else {
+          return null;
         }
       }}
       </ProductConsumer>

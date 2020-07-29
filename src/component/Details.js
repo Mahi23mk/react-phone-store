@@ -9,7 +9,7 @@ export default class Details extends React.Component {
       {value=>{
         const {id,company,img,info,price,title,inCart} = value.detailProduct; //actual data stored in the state retrieve
         return(
-          <div className="container">
+          <div className="container mt-4">
             <div className="row">
               <div className="col-10 mx-auto text-slanted text-center my-5">
               <h1>{title}</h1>
