@@ -32,6 +32,7 @@ export default class Product extends React.Component {
                       </div>
                     )
                   }else{
+
                       return(
                         <div className="img-container p-5 "
                          onClick={()=>value.handelDetail(id)}>

@@ -6,6 +6,7 @@ import "../App.css"
 import Login from  "./Login"
 import Register from  "./Register"
 
+
 export default class Toggle extends React.Component{
   render(){
     return(
@@ -15,14 +16,15 @@ export default class Toggle extends React.Component{
 
       {value =>{
       return(
-            <div className="row mt-5">
-              <div className="container mt-5">
+            <div className="row mt-1">
+
+              <div className="container mt-4">
                 <div className="box-controller mx-auto">
                   <div className={  (value.login_toggle?"selected-controller":"controller")}>
-                    <div  onClick={()=>{value.toggle()}}>LOGIN</div>
+                    <div  className="text-success"onClick={()=>{value.toggle()}}>LOGIN</div>
                   </div>
                   <div className={  (value.register_toggle?"selected-controller":"controller")}>
-                    <div  onClick={()=>{value.toggle_register()}}>SIGN UP</div>
+                    <div  className="text-danger"onClick={()=>{value.toggle_register()}}>SIGN UP</div>
                   </div>
                 </div>
               </div>

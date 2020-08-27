@@ -184,6 +184,10 @@ toggle_register=()=>{
   });
 };
 
+language=()=>{
+
+}
+
   render(){
     return(
       <ProductContext.Provider value={{
@@ -198,8 +202,8 @@ toggle_register=()=>{
         clearCart:this.clearCart,
         login:this.login,
         toggle:this.toggle,
-        toggle_register:this.toggle_register
-
+        toggle_register:this.toggle_register,
+        language:this.language
       }}>
       {this.props.children}
       </ProductContext.Provider>

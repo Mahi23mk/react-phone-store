@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import bootstrap from "bootstrap/dist/css/bootstrap.min.css"
+
 import {Switch,Route} from "react-router-dom"
 
 import Navbar from "./component/Navbar"
