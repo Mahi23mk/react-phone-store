@@ -1,4 +1,4 @@
-const mongo = require('mongodb').MongoClient;
+/*const mongo = require('mongodb').MongoClient;
 
 const url = "mongodb+srv://mahima23:mahima@123@cluster0.qfv0i.mongodb.net/FirstDb?retryWrites=true&w=majority";
 
@@ -15,6 +15,9 @@ mongo.connect(url,function(err,db){
     db.close();
   });
 });
+*/
+
+
 
 //const MongoClient = require('mongodb').MongoClient;
 //const uri = "mongodb+srv://mahima23:<password>@cluster0.qfv0i.mongodb.net/<dbname>?retryWrites=true&w=majority";
