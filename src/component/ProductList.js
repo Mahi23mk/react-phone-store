@@ -5,6 +5,9 @@ import {ProductConsumer} from "../context"
 
 export default class ProductList extends React.Component {
   render() {
+    const search = this.props.search;
+    let filters = [];
+
     return(
       <React.Fragment>
         <div className="py-4">
@@ -14,11 +17,26 @@ export default class ProductList extends React.Component {
 
             <div className="row mx-3">
 
-                <ProductConsumer>{
+                <ProductConsumer>
+                {
                   val=>{
-                  return val.products.map(x=>{
-                    return <Product key={x.id} x={x}/>
-                  })
+                    filters = val.products.filter(x=>{
+                      return (x.title.toLowerCase().indexOf(search.toLowerCase()) !==-1)
+                    })
+
+                    if(!search){
+                        return val.products.map(x=>{
+                          return <Product key={x.id} x={x}/>
+                        })
+                    }
+                    else{
+
+                          return filters.map(x=>{
+                            return <Product key={x.id} x={x}/>;
+                          })
+                  
+                    }
+
                   }
                 }
                 </ProductConsumer>

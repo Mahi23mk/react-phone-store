@@ -1,7 +1,6 @@
 import React from "react"
 import {storeProducts,detailProduct} from "./data"
-
-
+import {Link} from "react-router-dom"
 const ProductContext = React.createContext(); //variable
 
 class ProductProvider extends React.Component{
@@ -154,12 +153,11 @@ addTotals=()=>{
 
 login=()=>{
   let prevState = this.state.loggedIn;
-
   this.setState(()=>{
     return{
       loggedIn:true
     }
-  })
+  });
   console.log(this.state.loggedIn);
 };
 

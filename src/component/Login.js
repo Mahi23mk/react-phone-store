@@ -7,20 +7,32 @@ import {Link} from "react-router-dom"
 import {Formik} from "formik"
 import * as EmailValidator from "email-validator"
 import * as Yup from "yup"
-
+import {Redirect} from "react-router"
 
 export default class Login extends React.Component{
+
+  loginn = ()=>{
+    this.props.loginn();
+  }
   render(){
     return(
       <Formik
-      initialValues={{ email: "", password: "" }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
+      initialValues={{username:"", email: "", password: "" }}
+      onSubmit={(values,{ setSubmitting ,resetForm}) => {
+
+      setTimeout(() => {
           console.log("Logging in", values);
-          setSubmitting(false);
+          setSubmitting(true);
+          resetForm();
+          alert("LoggedIn as " + values.username);
         }, 500);
+        if(values){
+            {this.loginn()}
+        }
       }}
         validationSchema={Yup.object().shape({
+              username:Yup.string()
+                .required("Required"),
               email: Yup.string()
                 .email()
                 .required("Required"),
@@ -28,8 +40,7 @@ export default class Login extends React.Component{
                 .required("No password provided.")
                 .min(8, "Password is too short - should be 8 chars minimum.")
                 .matches(/(?=.*[0-9])/, "Password must contain a number.")
-            })}
-                 >
+            })}>
         {
           props=>{
             const {
@@ -53,9 +64,25 @@ export default class Login extends React.Component{
                   if(value.login_toggle){
                     return(
                       <React.Fragment>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} >
                         <div className="box mx-auto ">
-                          <div className="inner-group mx-auto ">
+                        <div className="inner-group mx-auto my-auto">
+                            <label id="label3" htmlfor="username">Username</label>
+                            <input
+                               type="text"
+                               name="username"
+                               value={values.username}
+                               className={errors.username && touched.username && "error"}
+                               placeholder="Username"
+                               onChange={handleChange}
+                               onBlur={handleBlur}
+                            />
+                            {errors.username && touched.username && (
+                              <div className="input-feedback text-danger">{errors.username}</div>
+                            )}
+
+                        </div>
+                          <div className="inner-group mx-auto my-2">
                               <label id="label2" htmlfor="email">E-mail</label>
                               <input
                                  type="text"
@@ -71,7 +98,7 @@ export default class Login extends React.Component{
                               )}
 
                           </div>
-                          <div className="inner-group mx-auto  my-3">
+                          <div className="inner-group mx-auto  my-2">
                             <label id="label1" htmlfor="password">Password</label>
                             <input
                               type="password"
@@ -88,15 +115,14 @@ export default class Login extends React.Component{
                           </div>
                             <button
                               type="submit"
-                              className=" my-4 p-1 login_btn" disabled={isSubmitting}
-                              onClick={!(values.email.length && values.password)?()=>value.login():null}>
+                              className=" my-4 p-1 login_btn" disabled={isSubmitting}>
                               LOGIN
+                              {isSubmitting ?<Redirect to="/"/>:null}
                             </button>
                           <Link to="/">
                            <button className=" my-2 p-1 cancel_btn"  onClick={()=>{}}>CANCEL
                             </button>
                             </Link>
-
                   </div>
                      </form>
 
@@ -108,9 +134,6 @@ export default class Login extends React.Component{
             }
 
             </ProductConsumer>
-
-
-
             </div>
             </React.Fragment>
 

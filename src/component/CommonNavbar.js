@@ -4,13 +4,7 @@ import {ProductConsumer} from "../context"
 import ProductList from "./ProductList"
 
 export default class Navbar extends React.Component {
-  state = {
-    search:""
-  }
 
-  handleSearch=(e)=>{
-    this.setState({search:e.target.value});
-  }
   render() {
     return(
       <React.Fragment>
@@ -28,18 +22,6 @@ export default class Navbar extends React.Component {
           </button>
 
           <div className=" collapse navbar-collapse" id="navbarTogglerDemo03">
-
-          <form className="form-inline my-auto navbar-brand">
-            <input
-              className="form-control "
-              type="search"
-              placeholder="Search"
-              onChange={this.handleSearch}
-              value={this.state.search}
-              aria-label="Search"
-            />
-          </form>
-
 
             <ul className="navbar-nav">
 
@@ -65,13 +47,11 @@ export default class Navbar extends React.Component {
 
          </div>
 
-
-
         </nav>
         )
       }}
     </ProductConsumer>
-    <ProductList search={this.state.search} />
+
     </React.Fragment>
     )
   }

@@ -1,7 +1,9 @@
 import React from "react"
 import {ProductConsumer} from "../context"
 import  {Link} from "react-router-dom"
+import CommonNavbar from "./CommonNavbar"
 import "../App.css"
+
 export default class Details extends React.Component {
   render() {
     return(
@@ -9,6 +11,8 @@ export default class Details extends React.Component {
       {value=>{
         const {id,company,img,info,price,title,inCart} = value.detailProduct; //actual data stored in the state retrieve
         return(
+          <React.Fragment>
+          <CommonNavbar/>
           <div className="container mt-4">
             <div className="row">
               <div className="col-10 mx-auto text-slanted text-center my-5">
@@ -42,6 +46,7 @@ export default class Details extends React.Component {
               </div>
             </div>
           </div>
+          </React.Fragment>
         );
 
       }}

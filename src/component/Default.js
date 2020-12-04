@@ -1,9 +1,12 @@
 import React from "react"
+import CommonNavbar from "./CommonNavbar"
 
 export default class Default extends React.Component {
   render() {
     console.log(this.props);
     return(
+      <React.Fragment>
+      <CommonNavbar/>
       <div className="container mt-5">
         <div className="row">
           <div className="col-10 mx-auto text-center text-title text-uppercase pt-5">
@@ -15,6 +18,7 @@ export default class Default extends React.Component {
           </div>
         </div>
       </div>
+        </React.Fragment>
     )
   }
 }

@@ -2,6 +2,8 @@ import React from "react"
 
 export default function CartColumns(){
   return (
+
+
     <div className="container-fluid mt-4 text-center d-large-block">
       <div className="row">
         <div className="col-10 mx-auto col-lg-2">
@@ -24,5 +26,6 @@ export default function CartColumns(){
         </div>
       </div>
     </div>
+  
   )
 }

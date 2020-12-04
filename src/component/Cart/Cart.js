@@ -5,10 +5,14 @@ import EmptyCart from "./EmptyCart"
 import CartList from "./CartList"
 import CartTotals from "./CartTotals"
 import {ProductConsumer} from "../../context"
+import CommonNavbar from "../CommonNavbar"
+
 
 export default class Cart extends React.Component {
   render() {
     return(
+      <React.Fragment>
+      <CommonNavbar/>
       <section>
       <ProductConsumer>
       {value=>{
@@ -29,6 +33,7 @@ export default class Cart extends React.Component {
 
       </ProductConsumer>
       </section>
+        </React.Fragment>
     )
   }
 }
